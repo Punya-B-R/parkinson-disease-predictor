@@ -58,25 +58,25 @@ The system uses a hybrid deep learning architecture that fuses features from bot
 
 The system employs a four-stage training pipeline:
 
-1. **Wave Model Training** (`1_wave_training.py`)
+1. **Wave Model Training**
    - Architecture: ResNet18 (pretrained on ImageNet)
    - Input: Grayscale wave drawings (224x224)
    - Output: Binary classification (healthy vs. Parkinson's)
    - Optimizer: AdamW with learning rate 1e-4
 
-2. **Spiral Model Training** (`2_spiral_training.py`)
+2. **Spiral Model Training**
    - Architecture: Vision Transformer (ViT-Base-Patch16-224, pretrained)
    - Input: Grayscale spiral drawings (224x224)
    - Output: Binary classification (healthy vs. Parkinson's)
    - Optimizer: AdamW with learning rate 1e-4
 
-3. **Feature Fusion** (`3_fusion.py`)
+3. **Feature Fusion**
    - ResNet18 features (512-dim) → Projection layer (256-dim)
    - ViT features (768-dim) → Projection layer (256-dim)
    - Concatenated features (512-dim) → Classifier network
    - Classifier: Linear(512→256) → ReLU → Dropout(0.3) → Linear(256→1)
 
-4. **Fine-tuning** (`4_fine_tuning.py`)
+4. **Fine-tuning**
    - End-to-end optimization of the hybrid model
    - Differential learning rates: 1e-5 for pretrained branches, 1e-4 for fusion layers
    - Training on paired wave-spiral samples
@@ -112,8 +112,6 @@ The hybrid model achieved exceptional performance on the test dataset:
 <tr>
 <td width="50%">
 
-
-
 ## Project Structure
 
 ```
@@ -133,17 +131,6 @@ The hybrid model achieved exceptional performance on the test dataset:
     └── interpretation.py      # Results interpretation and visualization
 ```
 
-## Installation
-
-```bash
-# Clone the repository
-git clone <repository-url>
-cd <project-directory>
-
-# Install required dependencies
-pip install torch torchvision timm numpy pandas matplotlib scikit-learn jupyter pillow tqdm pytorch-grad-cam
-```
-
 ### Key Dependencies
 - `torch` & `torchvision` - PyTorch deep learning framework
 - `timm` - PyTorch Image Models (for Vision Transformer)
@@ -158,6 +145,48 @@ The project includes Grad-CAM++ visualization (`interpretation.py`) to understan
 - Identification of discriminative features in wave and spiral patterns
 - Increased trust and transparency for clinical applications
 
+### Wave Drawings
+
+<table>
+<tr>
+<td width="50%">
+
+**Original**
+
+![Healthy Wave](https://github.com/Punya-B-R/parkinson-disease-predictor/blob/main/assets/Screenshot%202025-11-27%20064745.png?raw=true)
+
+</td>
+<td width="50%">
+
+**GradCAM++**
+
+![Diseased Wave](https://github.com/Punya-B-R/parkinson-disease-predictor/blob/main/assets/download%20(1).png?raw=true)
+
+</td>
+</tr>
+</table>
+
+### Spiral Drawings
+
+<table>
+<tr>
+<td width="50%">
+
+**Original**
+
+![Healthy Spiral](https://github.com/Punya-B-R/parkinson-disease-predictor/blob/main/assets/Screenshot%202025-11-27%20063357.png?raw=true)
+
+</td>
+<td width="50%">
+
+**GradCAM++**
+
+![Diseased Spiral](https://github.com/Punya-B-R/parkinson-disease-predictor/blob/main/assets/forspiral.png?raw=true)
+
+</td>
+</tr>
+</table>
+
 ## Clinical Significance
 
 The high precision (1.0000) is particularly important in medical diagnosis as it means:
@@ -166,6 +195,4 @@ The high precision (1.0000) is particularly important in medical diagnosis as it
 - Reduced unnecessary follow-up tests and patient anxiety
 
 ## License
-
-
-[Add your license here]
+This project is licensed under the MIT License.
