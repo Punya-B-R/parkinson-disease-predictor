@@ -20,14 +20,14 @@ The system uses a hybrid deep learning architecture that fuses features from bot
 
 **Healthy**
 
-![Healthy Wave](path/to/healthy_wave.png)
+![Healthy Wave](https://github.com/Punya-B-R/parkinson-disease-predictor/blob/main/assets/V01HO02.png?raw=true)
 
 </td>
 <td width="50%">
 
 **Parkinson's Disease**
 
-![Diseased Wave](path/to/diseased_wave.png)
+![Diseased Wave](https://github.com/Punya-B-R/parkinson-disease-predictor/blob/main/assets/V08PO03.png?raw=true)
 
 </td>
 </tr>
@@ -41,14 +41,14 @@ The system uses a hybrid deep learning architecture that fuses features from bot
 
 **Healthy**
 
-![Healthy Spiral](path/to/healthy_spiral.png)
+![Healthy Spiral](https://github.com/Punya-B-R/parkinson-disease-predictor/blob/main/assets/V01HE03.png?raw=true)
 
 </td>
 <td width="50%">
 
 **Parkinson's Disease**
 
-![Diseased Spiral](path/to/diseased_spiral.png)
+![Diseased Spiral](https://github.com/Punya-B-R/parkinson-disease-predictor/blob/main/assets/V11PE02.png?raw=true)
 
 </td>
 </tr>
@@ -166,5 +166,6 @@ The high precision (1.0000) is particularly important in medical diagnosis as it
 - Reduced unnecessary follow-up tests and patient anxiety
 
 ## License
+
 
 [Add your license here]
